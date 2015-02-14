@@ -1,5 +1,5 @@
 # fastlane-decorator
-Custom Fastlane functionality added a bit hacky
+Custom Fastlane functionality (implemented a bit hacky)
 
 ## Requirements
 - Currently requires `fastlane` from https://github.com/joshdholtz/fastlane/tree/before-with-lane
