@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'fastlane-decorator'
+  s.name        = 'fastlane_decorator'
   s.version     = '0.1.0'
   s.date        = '2015-02-13'
   s.summary     = "Custom Fastlane functionality"
