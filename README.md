@@ -1,5 +1,5 @@
 # fastlane-env-lanes
-Custom Fastlane functionality (implemented a bit hacky)
+Fastlane environment specific lanes (implemented a bit hacky)
 
 ## Requirements
 - Currently requires `fastlane` from https://github.com/joshdholtz/fastlane/tree/before-with-lane
