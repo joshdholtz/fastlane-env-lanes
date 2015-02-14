@@ -1,4 +1,4 @@
-# fastlane-decorator
+# fastlane-env-lanes
 Custom Fastlane functionality (implemented a bit hacky)
 
 ## Requirements
@@ -9,7 +9,7 @@ Custom Fastlane functionality (implemented a bit hacky)
 
 ```ruby
 require 'bundler/setup' # Might need to only do this if installed from git directly
-require 'fastlane_decorator'
+require 'fastlane_env_lanes'
 
 before_all do |lane|
   # Do some before stuff here
