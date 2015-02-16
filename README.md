@@ -1,5 +1,7 @@
 # fastlane-env-lanes
-Fastlane environment specific lanes (implemented a bit hacky)
+[Fastlane](https://github.com/KrauseFx/fastlane) environment specific lanes (implemented a bit hacky)
+
+**Why didn't I make a pull request into Fastlane? -** I [did](https://github.com/KrauseFx/fastlane/pulls?q=is%3Apr+author%3Ajoshdholtz+)! I just got anxious and wanted things now :innocent:
 
 ## Functionality
 - Loads `.env` and `.env.default` with `dotenv`
