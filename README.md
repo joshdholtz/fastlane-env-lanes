@@ -21,12 +21,12 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 
 gem 'fastlane'
-gem 'fastlane_env_lanes', :git => 'git@github.com:joshdholtz/fastlane-env-lanes.git'
+gem 'fastlane_env_lanes', '~> 0.1'
 ```
 
 ### Fastile
 ```ruby
-require 'bundler/setup' # Might need to only do this if installed from git directly
+require 'bundler/setup' # Might need to only do this if installed from git directly and using bundler
 require 'fastlane_env_lanes'
 
 # Other Fastlane stuff below here
