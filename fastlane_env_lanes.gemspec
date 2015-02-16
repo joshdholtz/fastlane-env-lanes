@@ -1,15 +1,16 @@
 Gem::Specification.new do |s|
   s.name        = 'fastlane_env_lanes'
-  s.version     = '0.1.0'
-  s.date        = '2015-02-13'
+  s.version     = '0.1.1'
+  s.date        = '2015-02-16'
   s.summary     = "Fastlane environment specific lanes"
   s.description = "Fastlane environment specific lanes (implemented a bit hacky)"
   s.authors     = ["Josh Holtz"]
   s.email       = 'me@joshholtz.com'
   s.files       = ["lib/fastlane_env_lanes.rb"]
   s.homepage    =
-    'https://github.com/joshdholtz/fastlane-decorator'
+    'https://github.com/joshdholtz/fastlane-env-lanes'
   s.license       = 'MIT'
 
-  s.add_dependency 'fastlane'
+  s.add_dependency 'fastlane', '~> 0.1.7'
+  s.add_dependency 'dotenv', '~> 0.7'
 end
