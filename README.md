@@ -79,7 +79,6 @@ INFO [2015-02-16 15:17:40.69]: fastlane.tools finished successfully
 ```sh
 --- iOS/YourApp » fastlane test:staging        
 INFO [2015-02-16 15:19:18.94]: Loading from './fastlane/.env.staing'
-INFO [2015-02-16 15:19:18.94]: Driving the lane 'test__staging'
 INFO [2015-02-16 15:19:18.94]: Driving the lane 'test'
 test NOT in production
 INFO [2015-02-16 15:19:18.94]: fastlane.tools finished successfully 🎉
