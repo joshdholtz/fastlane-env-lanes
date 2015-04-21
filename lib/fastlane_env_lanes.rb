@@ -23,6 +23,17 @@ module FastlaneLaneManagerExtensions
 
     def cruise_lane(platform, key, p_env = nil)
 
+      keys = key.split(' ') 
+      keys.each do |single_key|
+        puts "single_key - #{single_key}"
+        args = fl_env_lanes_run_lane(platform, single_key, p_env)
+        super(args[0], args[1], args[2])
+      end
+
+    end
+
+    def fl_env_lanes_run_lane(platform, key, p_env)
+
       env_key = key.to_s.gsub(':', '__')
       lane_key = env_key.split('__')[0]
 
@@ -52,12 +63,12 @@ module FastlaneLaneManagerExtensions
 
       # Checking if the environment lane exists
       if env_key
-        super platform, env_key.to_s, env
+        return platform, env_key.to_s, env
       else
-        super platform, lane_key.to_s, env
+        return platform, lane_key.to_s, env
       end
-
     end
+
   end
 
   def self.prepended(base)
