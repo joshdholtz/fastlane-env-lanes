@@ -25,7 +25,6 @@ module FastlaneLaneManagerExtensions
 
       keys = key.split(' ') 
       keys.each do |single_key|
-        puts "single_key - #{single_key}"
         args = fl_env_lanes_run_lane(platform, single_key, p_env)
         super(args[0], args[1], args[2])
       end
