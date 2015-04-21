@@ -15,9 +15,13 @@ module FastlaneEnvLanes
       super key, &block
     end
   end
+end
 
-  module FastlaneRunnerExtensions
-    def execute(key)
+module FastlaneLaneManagerExtensions
+
+  module ClassMethods
+
+    def cruise_lane(platform, key, p_env = nil)
 
       env_key = key.to_s.gsub(':', '__')
       lane_key = env_key.split('__')[0]
@@ -28,13 +32,13 @@ module FastlaneEnvLanes
       Dotenv.load(env_file, env_default_file)
 
       # Priority of environment goes to lane called with ":<env>"
-      # Then uses environment passed in through options "--env <env>"
+      # Then uses environment passed in through options ":<env>"
       env = nil
       if env_key.split('__').size > 1
         env = env_key.split('__')[1]
-      else
-        env = Fastlane::Actions.lane_context[ Fastlane::Actions::SharedValues::ENVIRONMENT ].to_s
-        env_key = lane_key + '__' + env
+      elsif p_env
+        # env = Fastlane::Actions.lane_context[ Fastlane::Actions::SharedValues::ENVIRONMENT ].to_s unless p_env
+        env_key = lane_key + '__' + p_env
       end
 
       # Loads .env file for the environment
@@ -44,16 +48,26 @@ module FastlaneEnvLanes
         Dotenv.overload(env_file)
       end
 
+      env = p_env if p_env
+
       # Checking if the environment lane exists
-      if FastlaneEnvLanes.env_lanes && FastlaneEnvLanes.env_lanes.include?(env_key.to_sym)
-        super env_key.to_sym
+      if env_key
+        super platform, env_key.to_s, env
       else
-        super lane_key.to_sym
+        super platform, lane_key.to_s, env
       end
 
     end
   end
+
+  def self.prepended(base)
+    class << base
+      prepend ClassMethods
+    end  
+  end
+
 end
+Fastlane::LaneManager.send(:prepend, FastlaneLaneManagerExtensions)
 
 module Fastlane
   class FastFile
@@ -61,8 +75,3 @@ module Fastlane
   end
 end
 
-module Fastlane
-  class Runner
-    prepend FastlaneEnvLanes::FastlaneRunnerExtensions
-  end
-end
