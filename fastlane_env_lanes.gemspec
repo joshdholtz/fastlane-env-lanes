@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'fastlane_env_lanes'
-  s.version     = '0.2.0'
-  s.date        = '2015-04-21'
+  s.version     = '0.2.1'
+  s.date        = '2015-04-22'
   s.summary     = "Fastlane environment specific lanes"
   s.description = "Fastlane environment specific lanes (implemented a bit hacky)"
   s.authors     = ["Josh Holtz"]

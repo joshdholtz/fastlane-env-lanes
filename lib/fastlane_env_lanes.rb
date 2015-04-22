@@ -61,11 +61,16 @@ module FastlaneLaneManagerExtensions
       env = p_env if p_env
 
       # Checking if the environment lane exists
-      if env_key
+      if env_key && lanes.include?(env_key)
         return platform, env_key.to_s, env
       else
         return platform, lane_key.to_s, env
       end
+    end
+
+    def lanes
+      ff = Fastlane::FastFile.new(File.join(Fastlane::FastlaneFolder.path, 'Fastfile'))
+      ff.runner.available_lanes
     end
 
   end
